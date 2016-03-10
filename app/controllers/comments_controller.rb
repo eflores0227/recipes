@@ -14,8 +14,16 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @recipe = Recipe.find(params[:recipe_id])
-    @comment = Comment.new
+    if params[:recipe_id]
+      @recipe = Recipe.find(params[:recipe_id])
+      @comment = Comment.new
+      render "/comments/new_for_recipe"
+    else
+      params[:video_id]
+      @video = Video.find(params[:video_id])
+      @comment = Comment.new
+      render "/comments/new_for_video"
+    end
   end
 
   # GET /comments/1/edit
