@@ -6,5 +6,5 @@ class Recipe < ActiveRecord::Base
     where("title LIKE ?", "%#{search}%")
     # where("ingredients LIKE ?", "%#{search}%")
   end
-
+testing 2
 end
